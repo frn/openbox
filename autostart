@@ -1,0 +1,87 @@
+
+## Start session manager
+#lxsession &
+
+#polish
+setxkbmap pl
+
+## Enable power management
+#xfce4-power-manager &
+
+## Set desktop wallpaper
+
+sh ~/.fehbg &
+
+
+compton &
+
+#qmenu_registrar & 
+
+## Launch panel
+#tint2 &
+#lxpanel &
+pypanel &
+
+#screensaver
+xscreensaver -no-splash &
+
+## Detect and configure touchpad. See 'man synclient' for more info.
+if egrep -iq 'touchpad' /proc/bus/input/devices; then
+    synclient VertEdgeScroll=1 &
+    synclient TapButton1=1 &
+fi
+
+
+redshiftgui &
+
+#xpad -h &
+globnote &
+
+#ptbatterysystemtray &
+
+clipit &
+
+
+#browser
+firefox &
+
+
+#doublecmd &
+#sunflower &
+pcmanfm &
+#tuxcmd &
+
+
+#calendar
+agenda-gtk &
+
+
+#pasystray &
+
+kontaminuti &
+
+#yaudtray &
+
+#netmon &
+sudo netctl-gui &
+
+
+#terminal
+
+/home/a/frnbin/urxvtcd -name terminal &
+
+sleep 2
+
+/home/a/frnbin/urxvtcd -name termedge &
+
+sleep 2
+
+/home/a/frnbin/urxvtcd -name termedge &
+
+sleep 3
+
+stiler simple 
+
+sleep 5
+
+#dropbox start

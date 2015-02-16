@@ -1,0 +1,6 @@
+LANG=pl_PL.UTF8
+source ~/.path
+source ~/.aliases
+
+setxkbmap pl
+
