@@ -423,7 +423,7 @@
     <!-- Keybindings for running helpers applications -->
     <keybind key="A-F1">
       <action name="Execute">
-        <command>obkb.py w</command>
+        <command>obkb w</command>
       </action>
     </keybind>
     <keybind key="A-F9">
@@ -533,7 +533,7 @@
     </keybind>
     <keybind key="W-s">
       <action name="Execute">
-        <command>caffeine_toggle</command>
+        <command>sonata</command>
       </action>
     </keybind>
     <!-- Keybindings for dual monitor manage -->
