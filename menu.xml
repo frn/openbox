@@ -4,15 +4,15 @@
     <menu id="todo_id" label="Todo" execute="openbox-todo"/>
     <menu id="xdg_menu" label="Applications" execute="cat /var/cache/xdg-menu/openbox/menu.xml"/>
     <menu id="obrowse_id" label="Obrowse" execute="obrowse"/>
-    <menu id="sys_menu" label="System" execute="/home/a/frnbin/sysinfo.sh"/>
+    <menu id="sys_menu" label="System" execute="sysinfo.sh"/>
     <item label="Terminal">
       <action name="Execute">
-        <command>/home/a/frnbin/toggle urxvtq '/home/a/frnbin/urxvtcd -g 113x10+0+0 -name urxvtq'</command>
+        <command>toggle urxvtq 'urxvtcd -g 113x10+0+0 -name urxvtq'</command>
       </action>
     </item>
     <item label="Htop">
       <action name="Execute">
-        <command>/home/a/frnbin/toggle htop '/home/a/frnbin/urxvtcd -name htop -e htop'</command>
+        <command>toggle htop 'urxvtcd -name htop -e htop'</command>
       </action>
     </item>
     <separator/>
