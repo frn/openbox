@@ -185,49 +185,49 @@
     <chainQuitKey>C-g</chainQuitKey>
     <!-- Keybindings for desktop switching -->
     <!-- Keybindings for desktop switching -->
-    <keybind key="W-Left">
+    <keybind key="C-A-Left">
       <action name="GoToDesktop">
         <to>left</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="W-Right">
+    <keybind key="C-A-Right">
       <action name="GoToDesktop">
         <to>right</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="W-Up">
+    <keybind key="C-A-Up">
       <action name="GoToDesktop">
         <to>up</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="W-Down">
+    <keybind key="C-A-Down">
       <action name="GoToDesktop">
         <to>down</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="W-S-Left">
+    <keybind key="S-A-Left">
       <action name="SendToDesktop">
         <to>left</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="W-S-Right">
+    <keybind key="S-A-Right">
       <action name="SendToDesktop">
         <to>right</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="W-S-Up">
+    <keybind key="S-A-Up">
       <action name="SendToDesktop">
         <to>up</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="W-S-Down">
+    <keybind key="S-A-Down">
       <action name="SendToDesktop">
         <to>down</to>
         <wrap>no</wrap>
@@ -238,7 +238,7 @@
         <to>1</to>
       </action>
     </keybind>
-    <keybind key="W-S-1">
+    <keybind key="S-A-1">
       <action name="SendToDesktop">
         <to>1</to>
       </action>
@@ -248,7 +248,7 @@
         <to>2</to>
       </action>
     </keybind>
-    <keybind key="W-S-2">
+    <keybind key="S-A-2">
       <action name="SendToDesktop">
         <to>2</to>
       </action>
@@ -258,7 +258,7 @@
         <to>3</to>
       </action>
     </keybind>
-    <keybind key="W-S-3">
+    <keybind key="S-A-3">
       <action name="SendToDesktop">
         <to>3</to>
       </action>
@@ -268,7 +268,7 @@
         <to>4</to>
       </action>
     </keybind>
-    <keybind key="W-S-4">
+    <keybind key="S-A-4">
       <action name="SendToDesktop">
         <to>2</to>
       </action>
@@ -278,7 +278,7 @@
         <to>5</to>
       </action>
     </keybind>
-    <keybind key="W-S-5">
+    <keybind key="S-A-5">
       <action name="SendToDesktop">
         <to>5</to>
       </action>
@@ -288,7 +288,7 @@
         <to>6</to>
       </action>
     </keybind>
-    <keybind key="W-S-6">
+    <keybind key="S-A-6">
       <action name="SendtoDesktop">
         <to>6</to>
       </action>
@@ -298,7 +298,7 @@
         <to>7</to>
       </action>
     </keybind>
-    <keybind key="W-S-7">
+    <keybind key="S-A-7">
       <action name="SendToDesktop">
         <to>7</to>
       </action>
@@ -308,7 +308,7 @@
         <to>8</to>
       </action>
     </keybind>
-    <keybind key="W-S-8">
+    <keybind key="S-A-8">
       <action name="SendToDesktop">
         <to>8</to>
       </action>
@@ -318,7 +318,7 @@
         <to>9</to>
       </action>
     </keybind>
-    <keybind key="W-S-9">
+    <keybind key="S-A-9">
       <action name="SendToDesktop">
         <to>9</to>
       </action>
@@ -328,7 +328,7 @@
         <to>10</to>
       </action>
     </keybind>
-    <keybind key="W-S-0">
+    <keybind key="S-A-0">
       <action name="SendToDesktop">
         <to>10</to>
       </action>
@@ -420,6 +420,35 @@
         <command>stiler_toggle</command>
       </action>
     </keybind>
+         <!-- Snapping And Fullscreen -->
+    <keybind key="W-Up">
+      <action name="MaximizeFull"/>
+      <action name="Undecorate"/>
+    </keybind>
+    <keybind key="W-Down">
+      <action name="UnmaximizeFull"/>
+      <action name="Decorate"/>
+    </keybind>
+    <keybind key="W-Left">
+      <action name="UnmaximizeFull"/>
+      <action name="MaximizeVert"/>
+      <action name="MoveResizeTo">
+        <width>50%</width>
+      </action>
+      <action name="MoveToEdge">
+        <direction>west</direction>
+      </action>
+    </keybind>
+    <keybind key="W-Right">
+      <action name="UnmaximizeFull"/>
+      <action name="MaximizeVert"/>
+      <action name="MoveResizeTo">
+        <width>50%</width>
+      </action>
+      <action name="MoveToEdge">
+        <direction>east</direction>
+      </action>
+    </keybind>
     <!-- Keybindings for running helpers applications -->
     <keybind key="A-F1">
       <action name="Execute">
@@ -431,7 +460,7 @@
         <command>gvim --remote-tab-silent /home/frn/.config/openbox/rc.xml</command>
       </action>
     </keybind>
-    <keybind key="W-F10">
+    <keybind key="A-F10">
       <action name="ToggleMaximize"/>
     </keybind>
     <keybind key="A-F11">
@@ -553,32 +582,32 @@
       </action>
     </keybind>
     <!-- Keybindings for contorl mpd -->
-    <keybind key="C-A-Up">
+    <keybind key="W-C-Up">
       <action name="Execute">
         <command>mpc-up</command>
       </action>
     </keybind>
-    <keybind key="C-A-Down">
+    <keybind key="W-C-Down">
       <action name="Execute">
         <command>mpc-down</command>
       </action>
     </keybind>
-    <keybind key="S-A-Left">
+    <keybind key="W-A-Left">
       <action name="Execute">
         <command>pulseaudio-ctl down</command>
       </action>
     </keybind>
-    <keybind key="S-A-Right">
+    <keybind key="W-A-Right">
       <action name="Execute">
         <command>pulseaudio-ctl up</command>
       </action>
     </keybind>
-    <keybind key="C-A-Left">
+    <keybind key="W-C-Left">
       <action name="Execute">
         <command>mpc prev</command>
       </action>
     </keybind>
-    <keybind key="C-A-Right">
+    <keybind key="W-C-Right">
       <action name="Execute">
         <command>mpc next</command>
       </action>

@@ -63,20 +63,20 @@ kontaminuti &
 #yaudtray &
 
 #netmon &
-sudo netctl-gui &
+netctl-gui &
 
 
 #terminal
 
-/home/a/frnbin/urxvtcd -name terminal &
+urxvtcd -name terminal &
 
 sleep 2
 
-/home/a/frnbin/urxvtcd -name termedge &
+urxvtcd -name termedge &
 
 sleep 2
 
-/home/a/frnbin/urxvtcd -name termedge &
+urxvtcd -name termedge &
 
 sleep 3
 
