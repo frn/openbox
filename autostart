@@ -2,28 +2,14 @@
 ## Start session manager
 #lxsession &
 
-#polish
-setxkbmap pl
-
 ## Enable power management
-#xfce4-power-manager &
+xfce4-power-manager &
 
 ## Set desktop wallpaper
-
 sh ~/.fehbg &
 
-
-compton &
-
-#qmenu_registrar & 
-
-## Launch panel
-#tint2 &
-#lxpanel &
-pypanel &
-
-#screensaver
-xscreensaver -no-splash &
+#basic compositing effects
+compton -CGb &
 
 ## Detect and configure touchpad. See 'man synclient' for more info.
 if egrep -iq 'touchpad' /proc/bus/input/devices; then
@@ -31,38 +17,35 @@ if egrep -iq 'touchpad' /proc/bus/input/devices; then
     synclient TapButton1=1 &
 fi
 
+## Launch panel
+pypanel &
 
+#screensaver
+xscreensaver -no-splash &
+
+#sun elevation
 redshiftgui &
 
-#xpad -h &
+#stickies
 globonote &
 
-#ptbatterysystemtray &
-
+#clipboard manager
 clipit &
-
 
 #browser
 firefox &
 
-
-#doublecmd &
-#sunflower &
+#file manager
 pcmanfm &
-#tuxcmd &
 
 
 #calendar
 agenda-gtk &
 
-
-#pasystray &
-
+#tomato techniquw
 kontaminuti &
 
-#yaudtray &
-
-#netmon &
+#network
 netctl-gui &
 
 
@@ -70,18 +53,9 @@ netctl-gui &
 
 urxvtcd -name terminal &
 
-sleep 2
+(sleep 2s && urxvtcd -name termedge) &
 
-urxvtcd -name termedge &
+(sleep 2s && urxvtcd -name termedge) &
 
-sleep 2
+(sleep 3s && stiler simple) & 
 
-urxvtcd -name termedge &
-
-sleep 3
-
-stiler simple 
-
-sleep 5
-
-#dropbox start
