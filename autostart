@@ -17,6 +17,9 @@ if egrep -iq 'touchpad' /proc/bus/input/devices; then
     synclient TapButton1=1 &
 fi
 
+#numlock
+numlockx &
+
 (sleep 2s && pypanel) &
 #screensaver
 (sleep 2s && xscreensaver -no-splash) &
