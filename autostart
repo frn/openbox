@@ -17,41 +17,39 @@ if egrep -iq 'touchpad' /proc/bus/input/devices; then
     synclient TapButton1=1 &
 fi
 
-## Launch panel
-pypanel &
-
+(sleep 2s && pypanel) &
 #screensaver
-xscreensaver -no-splash &
+(sleep 2s && xscreensaver -no-splash) &
 
 #sun elevation
-redshiftgui &
+(sleep 1s && redshiftgui) &
 
 #stickies
-globonote &
+(sleep 1s && globonote) &
 
 #clipboard manager
-clipit &
+(sleep 1s && clipit) &
 
 #browser
-firefox &
+(sleep 1s && firefox) &
 
 #file manager
-pcmanfm &
+(sleep 1s && pcmanfm) &
 
 
 #calendar
-agenda-gtk &
+(sleep 1s && agenda-gtk) &
 
 #tomato techniquw
-kontaminuti &
+(sleep 1s && kontaminuti) &
 
 #network
-netctl-gui &
+(sleep 1s && netctl-gui) &
 
 
 #terminal
 
-urxvtcd -name terminal &
+(sleep 1s && urxvtcd -name terminal) &
 
 (sleep 2s && urxvtcd -name termedge) &
 
