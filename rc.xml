@@ -184,51 +184,51 @@
     <!-- 'Left', 'Middle', 'Right' -->
   </dock>
   <keyboard>
-    <chainQuitKey>C-g</chainQuitKey>
+    <chainQuitKey>Esc</chainQuitKey>
     <!-- Keybindings for desktop switching -->
-    <keybind key="C-A-Left">
+    <keybind key="W-Left">
       <action name="GoToDesktop">
         <to>left</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="C-A-Right">
+    <keybind key="W-Right">
       <action name="GoToDesktop">
         <to>right</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="C-A-Up">
+    <keybind key="W-Up">
       <action name="GoToDesktop">
         <to>up</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="C-A-Down">
+    <keybind key="W-Down">
       <action name="GoToDesktop">
         <to>down</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="S-A-Left">
+    <keybind key="W-S-Left">
       <action name="SendToDesktop">
         <to>left</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="S-A-Right">
+    <keybind key="W-S-Right">
       <action name="SendToDesktop">
         <to>right</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="S-A-Up">
+    <keybind key="W-S-Up">
       <action name="SendToDesktop">
         <to>up</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="S-A-Down">
+    <keybind key="W-S-Down">
       <action name="SendToDesktop">
         <to>down</to>
         <wrap>no</wrap>
@@ -239,7 +239,7 @@
         <to>1</to>
       </action>
     </keybind>
-    <keybind key="S-A-1">
+    <keybind key="W-S-1">
       <action name="SendToDesktop">
         <to>1</to>
       </action>
@@ -249,7 +249,7 @@
         <to>2</to>
       </action>
     </keybind>
-    <keybind key="S-A-2">
+    <keybind key="W-S-2">
       <action name="SendToDesktop">
         <to>2</to>
       </action>
@@ -259,7 +259,7 @@
         <to>3</to>
       </action>
     </keybind>
-    <keybind key="S-A-3">
+    <keybind key="W-S-3">
       <action name="SendToDesktop">
         <to>3</to>
       </action>
@@ -269,7 +269,7 @@
         <to>4</to>
       </action>
     </keybind>
-    <keybind key="S-A-4">
+    <keybind key="W-S-4">
       <action name="SendToDesktop">
         <to>2</to>
       </action>
@@ -279,7 +279,7 @@
         <to>5</to>
       </action>
     </keybind>
-    <keybind key="S-A-5">
+    <keybind key="W-S-5">
       <action name="SendToDesktop">
         <to>5</to>
       </action>
@@ -289,7 +289,7 @@
         <to>6</to>
       </action>
     </keybind>
-    <keybind key="S-A-6">
+    <keybind key="W-S-6">
       <action name="SendtoDesktop">
         <to>6</to>
       </action>
@@ -299,7 +299,7 @@
         <to>7</to>
       </action>
     </keybind>
-    <keybind key="S-A-7">
+    <keybind key="W-S-7">
       <action name="SendToDesktop">
         <to>7</to>
       </action>
@@ -309,7 +309,7 @@
         <to>8</to>
       </action>
     </keybind>
-    <keybind key="S-A-8">
+    <keybind key="W-S-8">
       <action name="SendToDesktop">
         <to>8</to>
       </action>
@@ -319,7 +319,7 @@
         <to>9</to>
       </action>
     </keybind>
-    <keybind key="S-A-9">
+    <keybind key="W-S-9">
       <action name="SendToDesktop">
         <to>9</to>
       </action>
@@ -329,7 +329,7 @@
         <to>10</to>
       </action>
     </keybind>
-    <keybind key="S-A-0">
+    <keybind key="W-S-0">
       <action name="SendToDesktop">
         <to>10</to>
       </action>
@@ -422,15 +422,16 @@
       </action>
     </keybind>
     <!-- Snapping And Fullscreen -->
-    <keybind key="W-Up">
+    <keybind key="W-a" chroot="true">
+    <keybind key="Up">
       <action name="MaximizeFull"/>
       <action name="Undecorate"/>
     </keybind>
-    <keybind key="W-Down">
+    <keybind key="Down">
       <action name="UnmaximizeFull"/>
       <action name="Decorate"/>
     </keybind>
-    <keybind key="W-Left">
+    <keybind key="Left">
       <action name="UnmaximizeFull"/>
       <action name="MaximizeVert"/>
       <action name="MoveResizeTo">
@@ -440,7 +441,7 @@
         <direction>west</direction>
       </action>
     </keybind>
-    <keybind key="W-Right">
+    <keybind key="Right">
       <action name="UnmaximizeFull"/>
       <action name="MaximizeVert"/>
       <action name="MoveResizeTo">
@@ -449,6 +450,8 @@
       <action name="MoveToEdge">
         <direction>east</direction>
       </action>
+    </keybind>
+    <keybind key="Escape"><action name="BreakChroot"/></keybind> 
     </keybind>
     <!-- Keybindings for running helpers applications -->
     <keybind key="A-F1">
@@ -542,7 +545,7 @@
       </action>
     </keybind>
     <!-- Keybindings for dual monitor manage -->
-    <keybind key="W-A-m" chroot="true">
+    <keybind key="W-A-m">
     <keybind key="m" >
       <action name="Execute">
         <command>dual mirror</command>
@@ -557,8 +560,7 @@
       <action name="Execute">
         <command>dual right</command>
       </action>
-    </keybind>
-    <keybind key="Escape"><action name="BreakChroot"/></keybind>  
+    </keybind> 
     </keybind>
     <!-- Keybindings for contorl mpd -->
     <keybind key="W-m" chroot="true">
@@ -567,15 +569,18 @@
           <command>toggle ncmpcpp 'urxvtcd -name ncmpcpp -e ncmpcppif'</command>
         </action>
       </keybind>
+      <action name="BreakChroot"/>
       <keybind key="s">
         <action name="Execute">
           <command>sonata</command>
         </action>
+        <action name="BreakChroot"/>
       </keybind>
           <keybind key="p">
       <action name="Execute">
         <command>dmenu_playlist</command>
       </action>
+      <action name="BreakChroot"/>
     </keybind>
       <keybind key="Up">
         <action name="Execute">
