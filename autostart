@@ -20,7 +20,7 @@ fi
 #numlock
 numlockx &
 
-(sleep 2s && pypanel) &
+(sleep 2s && lxpanel) &
 #screensaver
 (sleep 2s && xscreensaver -no-splash) &
 
@@ -43,11 +43,11 @@ numlockx &
 #calendar
 (sleep 1s && agenda-gtk) &
 
-#tomato techniquw
-(sleep 1s && kontaminuti) &
+#tomato technique
+(sleep 1s && tomighty) &
 
 #network
-(sleep 1s && netctl-gui) &
+(sleep 1s && netctl-gui --minimized) &
 
 
 #terminal
