@@ -47,7 +47,7 @@ numlockx &
 (sleep 1s && tomighty) &
 
 #network
-(sleep 1s && netctl-gui --minimized) &
+#(sleep 1s && netctl-gui --minimized) &
 
 
 #terminal
