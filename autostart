@@ -54,9 +54,9 @@ numlockx &
 
 (sleep 1s && urxvtcd -name terminal) &
 
-(sleep 2s && urxvtcd -name termedge) &
+(sleep 2s && urxvtcd -name termedge1) &
 
-(sleep 2s && urxvtcd -name termedge) &
+(sleep 2s && urxvtcd -name termedge2) &
 
-(sleep 3s && stiler simple) & 
+(sleep 5s && stiler simple) & 
 
