@@ -1,62 +1,8 @@
-
-## Start session manager
-#lxsession &
-
-## Enable power management
-xfce4-power-manager &
-
-## Set desktop wallpaper
-sh ~/.fehbg &
-
-#basic compositing effects
-compton -CGb &
-
-## Detect and configure touchpad. See 'man synclient' for more info.
-if egrep -iq 'touchpad' /proc/bus/input/devices; then
-    synclient VertEdgeScroll=1 &
-    synclient TapButton1=1 &
-fi
-
-#numlock
-numlockx &
-
-(sleep 2s && lxpanel) &
-#screensaver
-(sleep 2s && xscreensaver -no-splash) &
-
-#sun elevation
-(sleep 1s && redshiftgui) &
-
-#stickies
-(sleep 1s && globonote) &
-
-#clipboard manager
-(sleep 1s && clipit) &
-
-#browser
-(sleep 1s && firefox) &
-
-#file manager
-(sleep 1s && pcmanfm) &
-
-
-#calendar
-(sleep 1s && agenda-gtk) &
-
-#tomato technique
-(sleep 1s && tomighty) &
-
-#network
-#(sleep 1s && netctl-gui --minimized) &
-
-
-#terminal
-
-(sleep 1s && urxvtcd -name terminal) &
-
-(sleep 2s && urxvtcd -name termedge1) &
-
-(sleep 2s && urxvtcd -name termedge2) &
-
-(sleep 5s && stiler simple) & 
-
+sleep 5s && kalu &
+nitrogen --restore &
+volumeicon &
+compton --config ~/.config/compton.conf -b &
+tint2 &
+plank &
+conky -c ~/.config/conky.conf &
+lxpolkit &
