@@ -1,5 +1,4 @@
-<?xml version="1.0"?>
-<openbox_config xmlns="http://openbox.org/3.4/rc">
+<?xml version="1.0" ?><openbox_config xmlns="http://openbox.org/3.4/rc">
   <resistance>
     <strength>10</strength>
     <screen_edge_strength>20</screen_edge_strength>
@@ -1499,138 +1498,11 @@
   <showIcons>yes</showIcons>
 </menu>
   <applications>
-    <application class="URxvt" name="htop" type="normal">
-      <decor>no</decor>
-      <layer>above</layer>
-      <position force="no">
-        <x>center</x>
-        <y>center</y>
-      </position>
-    </application>
-    <application class="URxvt" name="ncmpcpp" type="normal">
-      <maximized>horizontal</maximized>
-      <position force="no">
-        <x>0</x>
-        <y>0</y>
-      </position>
-      <decor>no</decor>
-      <layer>above</layer>
-    </application>
-    <application class="liteide" name="liteide" type="normal">
-      <desktop>6</desktop>
-      <maximized>yes</maximized>
-    </application>
-    <application class="URxvt" name="pacmixer" type="normal">
-      <layer>above</layer>
-      <position force="no">
-        <x>center</x>
-        <y>center</y>
-      </position>
-      <decor>no</decor>
-    </application>
-    <application class="SkypeTab" name="SkypeTab" type="normal">
-      <maximized>yes</maximized>
-      <desktop>4</desktop>
-    </application>
-    <application class="Deluge" name="*" type="normal">
-      <desktop>4</desktop>
-      <maximized>yes</maximized>
-    </application>
-    <application class="URxvt" name="yaourt-gui" type="normal">
-      <decor>no</decor>
-      <position force="no">
-        <x>center</x>
-        <y>center</y>
-      </position>
-    </application>
-    <application class="URxvt" name="bashmount" type="normal">
-      <decor>no</decor>
-      <position force="no">
-        <x>center</x>
-        <y>center</y>
-      </position>
-    </application>
-    <application class="Sunflower" name="Sunflower" type="normal">
-      <desktop>2</desktop>
-      <decor>no</decor>
-      <maximized>yes</maximized>
-    </application>
-    <application class="URxvt" name="bashburn" type="normal">
-      <decor>no</decor>
-      <position force="no">
-        <x>center</x>
-        <y>center</y>
-      </position>
-    </application>
-    <application class="URxvt" name="rtm" type="normal">
-      <position force="no">
-        <x>center</x>
-        <y>center</y>
-      </position>
-      <decor>no</decor>
-    </application>
-    <application class="Notepadqq" name="notepadqq-bin" type="normal">
-      <desktop>6</desktop>
-    </application>
-    <application class="Tuxcmd" name="tuxcmd" type="normal">
-      <desktop>2</desktop>
-      <fullscreen>yes</fullscreen>
-    </application>
-    <application class="LibreOffice 4.2" name="*" type="normal">
-      <maximized>yes</maximized>
-      <desktop>5</desktop>
-    </application>
-    <application class="Geany" name="geany" type="normal">
-      <desktop>6</desktop>
-      <maximized>yes</maximized>
-    </application>
-    <application class="__init__.py" name="__init__.py" type="normal">
-      <desktop>6</desktop>
-      <maximized>yes</maximized>
-    </application>
-    <application class="Qt_utils.pyo" name="qt_utils.pyo" type="normal">
-      <desktop>6</desktop>
-      <maximized>yes</maximized>
-    </application>
-    <application class="Monkeystudio" name="monkeystudio" type="normal">
-      <desktop>6</desktop>
-      <maximized>yes</maximized>
-    </application>
-    <application class="jetbrains-pycharm" name="*" type="normal">
-      <desktop>6</desktop>
-      <maximized>yes</maximized>
-    </application>
-    <application class="Enki" name="enki" type="normal">
-      <maximized>yes</maximized>
-    </application>
-    <application class="jetbrains-pycharm-ce" name="*" type="normal">
-      <desktop>6</desktop>
-      <maximized>yes</maximized>
-    </application>
-    <application class="sigil" name="sigil" type="normal">
-      <desktop>6</desktop>
-      <maximized>yes</maximized>
-    </application>
-    <application class="Exaile" name="*" type="normal">
-      <desktop>8</desktop>
-      <maximized>yes</maximized>
-    </application>
-    <application class="netctl-gui" name="netctl-gui" type="normal">
-      <decor>yes</decor>
-    </application>
-    <application class="Wine" name="SumatraPDF.exe" type="normal">
-      <desktop>7</desktop>
-      <maximized>yes</maximized>
-      <decor>no</decor>
-    </application>
-    <application class="MuPDF" name="*">
-      <maximized>yes</maximized>
-      <desktop>7</desktop>
-    </application>
-    <application class="Xmlcopyeditor" name="xmlcopyeditor" type="normal">
-      <desktop>6</desktop>
-      <maximized>yes</maximized>
-      <decor>no</decor>
-    </application>
-  </applications>
+<application class="Pcmanfm" name="pcmanfm" type="normal"><desktop>2</desktop><maximized>yes</maximized></application>
+<application class="Firefox" name="*" role="browser" type="normal"><desktop>3</desktop><maximized>yes</maximized></application>
+<application class="URxvt" name="termedge2" type="normal"><desktop>1</desktop><decor>no</decor></application>
+<application class="URxvt" name="terminal" type="normal"><desktop>1</desktop><decor>no</decor></application>
+<application class="URxvt" name="termedge1" type="normal"><desktop>1</desktop><decor>no</decor></application>
+<application class="jetbrains-idea-ce" name="*" type="normal"><desktop>7</desktop><maximized>yes</maximized></application>
+</applications>
 </openbox_config>
