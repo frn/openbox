@@ -398,7 +398,7 @@
                 </startupnotify>
             </action>
         </keybind>
-        <keybind key="W-space">
+        <keybind key="W-Menu">
             <action name="ShowMenu">
                 <menu>root-menu</menu>
             </action>
@@ -623,7 +623,7 @@
         </keybind>
         <keybind key="W-Tab">
             <action name="Execute">
-                <command>dmenu_raise</command>
+                <command>dmenu_running_apps</command>
             </action>
         </keybind>
         <!-- Keybindings for window switching with the arrow keys -->
@@ -651,11 +651,6 @@
         <keybind key="W-S-j">
             <action name="Execute">
                 <command>stiler cycle</command>
-            </action>
-        </keybind>
-        <keybind key="W-t">
-            <action name="Execute">
-                <command>stiler_toggle</command>
             </action>
         </keybind>
         <!-- brontosaurusrex start -->
@@ -1005,7 +1000,7 @@
         <!-- Keybindings for running toggle applications -->
         <keybind key="W-Return">
             <action name="Execute">
-                <command>toggle urxvtq 'urxvtcd -g 113x10+0+0 -name urxvtq'</command>
+                <command>urxvtq</command>
             </action>
         </keybind>
         <keybind key="W-C-Return">
@@ -1018,7 +1013,7 @@
                 <command>toggle htop 'urxvtcd -name htop -e htop'</command>
             </action>
         </keybind>
-        <keybind key="W-v">
+        <keybind key="W-S-v">
             <action name="Execute">
                 <command>toggle pacmixer 'urxvtcd -name pacmixer -e pacmixer'</command>
             </action>
@@ -1507,7 +1502,7 @@
             <desktop>2</desktop>
             <maximized>yes</maximized>
         </application>
-        <application class="Firefox" name="*" role="browser" type="normal">
+        <application class="Firefox" role="browser" type="normal">
             <desktop>3</desktop>
             <maximized>yes</maximized>
         </application>
@@ -1523,15 +1518,38 @@
             <desktop>1</desktop>
             <decor>no</decor>
         </application>
-        <application class="jetbrains-idea-ce" name="*" type="normal">
+        <application class="jetbrains-idea-ce" type="normal">
             <desktop>7</desktop>
             <maximized>yes</maximized>
         </application>
-        <application class="Vivaldi-stable" name="*" type="normal">
+        <application class="Vivaldi-stable" type="normal">
             <desktop>3</desktop>
             <maximized>yes</maximized>
         </application>
         <application class="Chromium" role="browser" type="normal"/>
-    <application class="GitKraken" name="gitkraken" type="normal"/>
-</applications>
+        <application class="GitKraken" name="gitkraken" type="normal"><desktop>4</desktop></application>
+        <application name="urxvtq">
+            <decor>no</decor>
+            <position force="yes">
+                <x>center</x>
+                <y>0</y>
+            </position>
+            <desktop>all</desktop>
+            <layer>above</layer>
+            <skip_pager>yes</skip_pager>
+            <skip_taskbar>yes</skip_taskbar>
+            <maximized>Horizontal</maximized>
+        </application>
+        <application name="htop">
+            <decor>no</decor>
+            <position force="yes">
+                <x>center</x>
+                <y>center</y>
+            </position>
+            <desktop>all</desktop>
+            <layer>above</layer>
+            <skip_pager>yes</skip_pager>
+            <skip_taskbar>yes</skip_taskbar>
+        </application>
+    </applications>
 </openbox_config>
