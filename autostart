@@ -1,15 +1,15 @@
+sleep 5s && kalu &
+nitrogen --restore &
+volumeicon &
+compton --config ~/.config/compton.conf -b &
+tint2 &
+plank &
+conky -c ~/.config/conky.conf &
+lxpolkit &
 
-## Start session manager
-#lxsession &
-
-## Enable power management
-xfce4-power-manager &
 
 ## Set desktop wallpaper
-sh ~/.fehbg &
-
-#basic compositing effects
-compton -CGb &
+#sh ~/.fehbg &
 
 ## Detect and configure touchpad. See 'man synclient' for more info.
 if egrep -iq 'touchpad' /proc/bus/input/devices; then
@@ -20,7 +20,6 @@ fi
 #numlock
 numlockx &
 
-(sleep 2s && lxpanel) &
 #screensaver
 (sleep 2s && xscreensaver -no-splash) &
 
@@ -31,7 +30,7 @@ numlockx &
 (sleep 1s && globonote) &
 
 #clipboard manager
-(sleep 1s && clipit) &
+(sleep 1s && copyq) &
 
 #browser
 (sleep 1s && firefox) &
@@ -39,24 +38,17 @@ numlockx &
 #file manager
 (sleep 1s && pcmanfm) &
 
-
-#calendar
-(sleep 1s && agenda-gtk) &
-
 #tomato technique
 (sleep 1s && tomighty) &
 
-#network
-#(sleep 1s && netctl-gui --minimized) &
-
+#netctl
+(sleep 1s && sudo netctltray) &
 
 #terminal
 
 (sleep 1s && urxvtcd -name terminal) &
-
 (sleep 2s && urxvtcd -name termedge1) &
-
 (sleep 2s && urxvtcd -name termedge2) &
 
-(sleep 5s && stiler simple) & 
+(sleep 5s && stiler simple) &
 
