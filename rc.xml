@@ -1506,18 +1506,6 @@
             <desktop>3</desktop>
             <maximized>yes</maximized>
         </application>
-        <application class="URxvt" name="termedge2" type="normal">
-            <desktop>1</desktop>
-            <decor>no</decor>
-        </application>
-        <application class="URxvt" name="terminal" type="normal">
-            <desktop>1</desktop>
-            <decor>no</decor>
-        </application>
-        <application class="URxvt" name="termedge1" type="normal">
-            <desktop>1</desktop>
-            <decor>no</decor>
-        </application>
         <application class="jetbrains-idea-ce" type="normal">
             <desktop>7</desktop>
             <maximized>yes</maximized>
@@ -1551,5 +1539,39 @@
             <skip_pager>yes</skip_pager>
             <skip_taskbar>yes</skip_taskbar>
         </application>
-    </applications>
+    <application class="URxvt" name="terminal" type="normal">
+        <decor>no</decor>
+        <position force="yes">
+            <x>0</x>
+            <y>0</y>
+        </position>
+        <size>
+            <width>66%</width>
+        </size>
+        <desktop>1</desktop>
+        <maximized>Vertical</maximized>
+    </application>
+        <application class="URxvt" name="termedge1" type="normal">
+            <decor>no</decor>
+            <position force="yes">
+                <x>50</x>
+                <y>0</y>
+            </position>
+            <size>
+                <width>33%</width>
+            </size>
+            <desktop>1</desktop>
+        </application>
+        <application class="URxvt" name="termedge2" type="normal">
+            <decor>no</decor>
+            <position force="yes">
+                <x>50</x>
+                <y>50</y>
+            </position>
+            <size>
+                <width>33%</width>
+            </size>
+            <desktop>1</desktop>
+        </application>
+</applications>
 </openbox_config>
