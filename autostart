@@ -44,11 +44,7 @@ numlockx &
 #netctl
 (sleep 1s && sudo netctltray) &
 
-#terminal
+#terminals
 
-(sleep 1s && urxvtcd -name terminal) &
-(sleep 2s && urxvtcd -name termedge1) &
-(sleep 2s && urxvtcd -name termedge2) &
-
-(sleep 5s && stiler simple) &
+(sleep 1s && urxvtcd -name terminal && urxvtcd -name termedge1 &&  urxvtcd -name termedge2 && stiler simple) &
 

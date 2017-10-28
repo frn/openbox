@@ -181,21 +181,7 @@
             </action>
         </keybind>
         <!--
-        <keybind key="XF86AudioNext">
-          <action name="Execute">
-            <command>audacious -f</command>
-          </action>
-        </keybind>
-        <keybind key="XF86AudioPrev">
-          <action name="Execute">
-            <command>audacious -r</command>
-          </action>
-        </keybind>
-        <keybind key="XF86AudioStop">
-          <action name="Execute">
-            <command>audacious -s</command>
-          </action>
-        </keybind>
+        <keybind key="XF86AudioNext"><action name="Execute"><command>audacious -f</command></action></keybind><keybind key="XF86AudioPrev"><action name="Execute"><command>audacious -r</command></action></keybind><keybind key="XF86AudioStop"><action name="Execute"><command>audacious -s</command></action></keybind>
         -->
         <keybind key="XF86PowerOff">
             <action name="Execute">
@@ -207,11 +193,7 @@
             </action>
         </keybind>
         <!--
-        <keybind key="XF86AudioPlay">
-          <action name="Execute">
-            <command>audacious -t</command>
-          </action>
-        </keybind>
+        <keybind key="XF86AudioPlay"><action name="Execute"><command>audacious -t</command></action></keybind>
         -->
         <keybind key="C-A-Right">
             <action name="DesktopRight">
@@ -282,24 +264,7 @@
             </action>
         </keybind>
         <!--
-        <keybind key="A-F3">
-          <action name="Execute">
-            <command>~/.config/dmenu/dmenu-bind.sh</command>
-            <startupnotify>
-              <enabled>yes</enabled>
-              <name>dmenu</name>
-            </startupnotify>
-          </action>
-        </keybind>
-        <keybind key="W-C-Space">
-          <action name="Execute">
-            <command>dmenu_run -i</command>
-            <startupnotify>
-              <enabled>yes</enabled>
-              <name>dmenu</name>
-            </startupnotify>
-          </action>
-        </keybind>
+        <keybind key="A-F3"><action name="Execute"><command>~/.config/dmenu/dmenu-bind.sh</command><startupnotify><enabled>yes</enabled><name>dmenu</name></startupnotify></action></keybind><keybind key="W-C-Space"><action name="Execute"><command>dmenu_run -i</command><startupnotify><enabled>yes</enabled><name>dmenu</name></startupnotify></action></keybind>
         -->
         <keybind key="A-Escape">
             <action name="Lower"/>
@@ -1477,20 +1442,24 @@
             </mousebind>
         </context>
     </mouse>
-    <menu><!-- You can specify more than one menu file in here and they are all loaded,
-       just don't make menu ids clash or, well, it'll be kind of pointless --><!-- default menu file (or custom one in $HOME/.config/openbox/) -->
+    <menu>
+        <!-- You can specify more than one menu file in here and they are all loaded,
+       just don't make menu ids clash or, well, it'll be kind of pointless -->
+        <!-- default menu file (or custom one in $HOME/.config/openbox/) -->
         <file>menu.xml</file>
-        <hideDelay>200</hideDelay><!-- if a press-release lasts longer than this setting (in milliseconds), the
+        <hideDelay>200</hideDelay>
+        <!-- if a press-release lasts longer than this setting (in milliseconds), the
        menu is hidden again -->
-        <middle>no</middle><!-- center submenus vertically about the parent entry -->
-        <submenuShowDelay>100</submenuShowDelay><!-- time to delay before showing a submenu after hovering over the parent
+        <middle>no</middle>
+        <!-- center submenus vertically about the parent entry -->
+        <submenuShowDelay>100</submenuShowDelay>
+        <!-- time to delay before showing a submenu after hovering over the parent
        entry.
        if this is a negative value, then the delay is infinite and the
        submenu will not be shown until it is clicked on -->
-        <submenuHideDelay>400</submenuHideDelay><!-- time to delay before hiding a submenu when selecting another
-       entry in parent menu -->
-        if this is a negative value, then the delay is infinite and the
-        submenu will not be hidden until a different submenu is opened --&gt;
+        <submenuHideDelay>400</submenuHideDelay>
+        <!-- time to delay before hiding a submenu when selecting another
+       entry in parent menu -->        if this is a negative value, then the delay is infinite and the        submenu will not be hidden until a different submenu is opened --&gt;        
         <applicationIcons>yes</applicationIcons>
         <!-- controls if icons appear in the client-list-(combined-)menu -->
         <manageDesktops>yes</manageDesktops>
@@ -1498,25 +1467,13 @@
         <showIcons>yes</showIcons>
     </menu>
     <applications>
-        <application class="Pcmanfm" name="pcmanfm" type="normal">
+        <application class="Pcmanfm" ype="normal">
             <desktop>2</desktop>
             <maximized>yes</maximized>
         </application>
-        <application class="Firefox" role="browser" type="normal">
+        <application class="Firefox" type="normal">
             <desktop>3</desktop>
             <maximized>yes</maximized>
-        </application>
-        <application class="URxvt" name="termedge2" type="normal">
-            <desktop>1</desktop>
-            <decor>no</decor>
-        </application>
-        <application class="URxvt" name="terminal" type="normal">
-            <desktop>1</desktop>
-            <decor>no</decor>
-        </application>
-        <application class="URxvt" name="termedge1" type="normal">
-            <desktop>1</desktop>
-            <decor>no</decor>
         </application>
         <application class="jetbrains-idea-ce" type="normal">
             <desktop>7</desktop>
@@ -1526,8 +1483,10 @@
             <desktop>3</desktop>
             <maximized>yes</maximized>
         </application>
-        <application class="Chromium" role="browser" type="normal"/>
-        <application class="GitKraken" name="gitkraken" type="normal"><desktop>4</desktop></application>
+        <application class="Chromium" type="normal"/>
+        <application class="GitKraken" type="normal">
+            <desktop>4</desktop>
+        </application>
         <application name="urxvtq">
             <decor>no</decor>
             <position force="yes">
@@ -1551,5 +1510,50 @@
             <skip_pager>yes</skip_pager>
             <skip_taskbar>yes</skip_taskbar>
         </application>
-    </applications>
+        <application class="URxvt" name="terminal" type="normal">
+            <decor>no</decor>
+            <position force="yes">
+                <x>0</x>
+                <y>0</y>
+            </position>
+            <size>
+                <width>66%</width>
+            </size>
+            <desktop>1</desktop>
+            <maximized>Vertical</maximized>
+        </application>
+        <application class="URxvt" name="termedge1" type="normal">
+            <decor>no</decor>
+            <position force="yes">
+                <x>900</x>
+                <y>10</y>
+            </position>
+            <size>
+                <width>33%</width>
+                <height>50%</height>
+            </size>
+            <desktop>1</desktop>
+        </application>
+        <application class="URxvt" name="termedge2" type="normal">
+            <decor>no</decor>
+            <position force="yes">
+                <x>900</x>
+                <y>350</y>
+            </position>
+            <size>
+                <width>33%</width>
+                <height>50%</height>
+            </size>
+            <desktop>1</desktop>
+        </application>
+        <application class="Code" type="normal">
+            <desktop>7</desktop>
+            <maximized>yes</maximized>
+        </application>
+        <application class="Gvim" type="normal">
+            <desktop>5</desktop>
+            <maximized>yes</maximized>
+        </application>
+    <application class="Transmission-gtk" name="transmission-gtk" type="normal"><desktop>4</desktop><maximized>yes</maximized></application>
+</applications>
 </openbox_config>
