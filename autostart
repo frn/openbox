@@ -1,15 +1,48 @@
-sleep 5s && kalu &
-nitrogen --restore &
+## Set desktop wallpaper
+sh ~/.fehbg
+
+##volume
 volumeicon &
+
+##compton
 compton --config ~/.config/compton.conf -b &
+
+##panel
 tint2 &
+
+#dock
 plank &
-conky -c ~/.config/conky.conf &
+
+#polkit
 lxpolkit &
 
+#numlock
+numlockx &
 
-## Set desktop wallpaper
-#sh ~/.fehbg &
+#screensaver
+xscreensaver -no-splash &
+
+#netctl
+sudo netctltray &
+
+#sun elevation
+redshiftgui &
+
+#stickies
+globonote  &
+
+#clipboard manager
+copyq &
+
+#browser
+firefox &
+
+#file manager
+pcmanfm &
+
+#tomato technique
+tomighty &
+
 
 ## Detect and configure touchpad. See 'man synclient' for more info.
 if egrep -iq 'touchpad' /proc/bus/input/devices; then
@@ -17,34 +50,8 @@ if egrep -iq 'touchpad' /proc/bus/input/devices; then
     synclient TapButton1=1 &
 fi
 
-#numlock
-numlockx &
-
-#screensaver
-(sleep 2s && xscreensaver -no-splash) &
-
-#sun elevation
-(sleep 1s && redshiftgui) &
-
-#stickies
-(sleep 1s && globonote) &
-
-#clipboard manager
-(sleep 1s && copyq) &
-
-#browser
-(sleep 1s && firefox) &
-
-#file manager
-(sleep 1s && pcmanfm) &
-
-#tomato technique
-(sleep 1s && tomighty) &
-
-#netctl
-(sleep 1s && sudo netctltray) &
 
 #terminals
 
-(sleep 1s && urxvtcd -name terminal && urxvtcd -name termedge1 &&  urxvtcd -name termedge2 && stiler simple) &
+sleep 1s && urxvtcd -name terminal && urxvtcd -name termedge1 &&  urxvtcd -name termedge2 && stiler simple &
 
