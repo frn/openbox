@@ -1,5 +1,4 @@
-<?xml version="1.0" ?>
-<openbox_config xmlns="http://openbox.org/3.4/rc">
+<?xml version="1.0" ?><openbox_config xmlns="http://openbox.org/3.4/rc">
     <resistance>
         <strength>10</strength>
         <screen_edge_strength>20</screen_edge_strength>
@@ -231,24 +230,6 @@
                 <wrap>no</wrap>
             </action>
         </keybind>
-        <keybind key="W-F1">
-            <action name="Desktop"/>
-        </keybind>
-        <keybind key="W-F2">
-            <action name="Desktop">
-                <desktop>2</desktop>
-            </action>
-        </keybind>
-        <keybind key="W-F3">
-            <action name="Desktop">
-                <desktop>3</desktop>
-            </action>
-        </keybind>
-        <keybind key="W-F4">
-            <action name="Desktop">
-                <desktop>4</desktop>
-            </action>
-        </keybind>
         <keybind key="W-d">
             <action name="ToggleShowDesktop"/>
         </keybind>
@@ -304,15 +285,6 @@
                 <startupnotify>
                     <enabled>yes</enabled>
                     <name>Web Browser</name>
-                </startupnotify>
-            </action>
-        </keybind>
-        <keybind key="W-t">
-            <action name="Execute">
-                <command>lxterminal</command>
-                <startupnotify>
-                    <enabled>yes</enabled>
-                    <name>lxterminal</name>
                 </startupnotify>
             </action>
         </keybind>
@@ -399,7 +371,7 @@
         <keybind key="A-W-Left">
             <action name="GrowToEdgeWest"/>
         </keybind>
-        <keybind key="W-c">
+        <keybind key="W-A-c">
             <action name="MoveToCenter"/>
         </keybind>
         <keybind key="XF86AudioRaiseVolume">
@@ -589,7 +561,7 @@
         </keybind>
         <keybind key="W-Tab">
             <action name="Execute">
-                <command>dmenu_running_apps</command>
+                <command>dmenu_raise</command>
             </action>
         </keybind>
         <!-- Keybindings for window switching with the arrow keys -->
@@ -932,11 +904,6 @@
                 <command>screenshot -s</command>
             </action>
         </keybind>
-        <keybind key="W-q">
-            <action name="Execute">
-                <command>oblogout</command>
-            </action>
-        </keybind>
         <keybind key="W-l">
             <action name="Execute">
                 <command>xscreensaver-command -lock</command>
@@ -1076,11 +1043,6 @@
             </keybind>
         </keybind>
         <!-- Keybindings for running applications -->
-        <keybind key="W-x">
-            <action name="Execute">
-                <command>seven</command>
-            </action>
-        </keybind>
         <keybind key="W-g">
             <action name="Execute">
                 <command>gvim --remote-tab-silent</command>
@@ -1560,5 +1522,7 @@
             <desktop>4</desktop>
             <maximized>yes</maximized>
         </application>
-    </applications>
+    <application class="Plank" name="plank" type="dock"><skip_taskbar>yes</skip_taskbar><skip_pager>yes</skip_pager></application>
+<application class="Tint2" name="tint2" type="dock"><skip_taskbar>yes</skip_taskbar><skip_pager>yes</skip_pager></application>
+</applications>
 </openbox_config>
