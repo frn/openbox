@@ -561,7 +561,7 @@
         </keybind>
         <keybind key="W-Tab">
             <action name="Execute">
-                <command>dmenu_raise</command>
+                <command>rofi -show window</command>
             </action>
         </keybind>
         <!-- Keybindings for window switching with the arrow keys -->
@@ -1524,5 +1524,17 @@
         </application>
     <application class="Plank" name="plank" type="dock"><skip_taskbar>yes</skip_taskbar><skip_pager>yes</skip_pager></application>
 <application class="Tint2" name="tint2" type="dock"><skip_taskbar>yes</skip_taskbar><skip_pager>yes</skip_pager></application>
+<application class="Chromium" role="browser" type="normal"><maximized>yes</maximized><desktop>3</desktop></application>
+<application class="Slimjet" role="browser" type="normal"><desktop>3</desktop><maximized>yes</maximized></application>
+<application class="Midori" role="browser" type="normal"><desktop>3</desktop><maximized>yes</maximized></application>
+<application class="Opera" type="normal"><desktop>3</desktop><maximized>yes</maximized></application>
+<application class="Pinta" type="normal"><desktop>9</desktop></application>
+<application class="Streamtuner2" type="normal"><desktop>8</desktop><maximized>yes</maximized></application>
+<application class="Audacious" type="normal"><desktop>8</desktop></application>
+<application class="Wine" name="irfanview.exe" type="normal"><desktop>9</desktop><maximized>yes</maximized></application>
+<application class="Exaile" type="normal"><desktop>8</desktop><maximized>yes</maximized></application>
+<application class="Tomahawk" name="tomahawk" type="normal"><desktop>8</desktop><layer>below</layer></application>
+<application class="Kaku" name="kaku" role="browser-window" type="normal"><desktop>8</desktop></application>
+<application class="SmartGit" type="normal"><desktop>4</desktop><maximized>yes</maximized></application>
 </applications>
 </openbox_config>
