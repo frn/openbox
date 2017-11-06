@@ -7,29 +7,47 @@ function generateExecute() {
 }
 
 function generateSeparator() {
-    [[ ${1} ]] && printf '  <separator label="%s"/>\n' "$1" || echo "<separator />"
+    [[ ${1} ]] && printf '  <separator label="%s"/>\n' "${1^}" || echo "<separator />"
 
 }
 
 function connectedProfile() {
-    p=$(netctl list | grep \*)
-    p=${p//\*/}
-    if [[ ${p} ]]
+    CONNECTED=$(netctl list | grep \*)
+    CONNECTED=${CONNECTED//\*/}
+    if [[ ${CONNECTED} ]]
     then
-        generateSeparator "${CONNECTED} ${p}"
-        generateExecute "stop" "stop ${p}"
-        generateExecute "restart" "restart ${p}"
+        generateSeparator "${CONNECTED_MSG} ${CONNECTED}"
+        generateExecute "stop" "stop ${CONNECTED}"
+        generateExecute "restart" "restart ${CONNECTED}"
     else
-        generateSeparator "${CONNECTED} []"
+        generateSeparator "${CONNECTED_MSG} []"
     fi
 }
+
+function allProfiles() {
+    if [[ ${CONNECTED} ]]
+    then
+        generateSeparator "All Profiles"
+        generateExecute "stop-all" "stop-all"
+    fi
+}
+
+
 
 function profiles() {
     profiles=($(netctl list))
     regex="^\*"
-    CMD="start"
 
-    [[ `echo ${profiles[@]} | grep \*` ]] && CMD="switch-to"
+    if [[ ${CONNECTED} ]]
+    then
+        CMD="switch-to"
+        PROFILES="Other Profiles"
+    else
+        CMD="start"
+        PROFILES="Profiles"
+    fi
+
+    generateSeparator ${PROFILES}
 
     for p in "${profiles[@]}"; do
 	    [[ $p =~ ^\* ]] && continue
@@ -40,14 +58,12 @@ function profiles() {
 
 IFS=$'\n'
 NETCTL="sudo netctl"
-CONNECTED="Connected profile:"
+CONNECTED_MSG="Connected profile:"
 
 
 echo '<?xml version="1.0" encoding="UTF-8"?>'
 echo '<openbox_pipe_menu>'
 connectedProfile
-generateSeparator "All Profiles"
-generateExecute "stop-all" "stop-all"
-generateSeparator "Other Profiles"
+allProfiles
 profiles
 echo '</openbox_pipe_menu>'
