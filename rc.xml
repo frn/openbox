@@ -1536,5 +1536,6 @@
 <application class="Tomahawk" name="tomahawk" type="normal"><desktop>8</desktop><layer>below</layer></application>
 <application class="Kaku" name="kaku" role="browser-window" type="normal"><desktop>8</desktop></application>
 <application class="SmartGit" type="normal"><desktop>4</desktop><maximized>yes</maximized></application>
+<application class="Doublecmd" type="normal"><desktop>2</desktop><maximized>yes</maximized><decor>no</decor></application>
 </applications>
 </openbox_config>
