@@ -14,34 +14,29 @@ function generateSeparator() {
 function connectedProfile() {
     CONNECTED=$(netctl list | grep \*)
     CONNECTED=${CONNECTED//\*/}
-    [[ ${CONNECTED} ]] && generateSeparator "${CONNECTED_MSG} ${CONNECTED}" &&
+    [[ ${CONNECTED} ]] && (generateSeparator "${CONNECTED_MSG} ${CONNECTED}" &&
                         generateExecute "stop" "stop ${CONNECTED}" &&
-                        generateExecute "restart" "restart ${CONNECTED}" ||
-                        generateSeparator "${CONNECTED_MSG} []"
+                        generateExecute "restart" "restart ${CONNECTED}") \
+                        || generateSeparator "${CONNECTED_MSG} []"
 }
 
 function allProfiles() {
-    [[ ${CONNECTED} ]] && generateSeparator "All Profiles" && generateExecute "stop-all" "stop-all"
+    [[ ${CONNECTED} ]] && generateSeparator "All Profiles" && generateExecute "stop all" "stop-all"
 }
 
 function profiles() {
     profiles=($(netctl list))
     regex="^\*"
-    if [[ ${CONNECTED} ]]
-    then
-        CMD="switch-to"
-        PROFILES="Other Profiles"
-    else
-        CMD="start"
-        PROFILES="Profiles"
-    fi
+    CMD="start"
+    PROFILES="Profiles"
+    [[ ${CONNECTED} ]] && CMD="switch-to" && PROFILES="Other Profiles"
 
     generateSeparator ${PROFILES}
 
     for p in "${profiles[@]}"; do
 	    [[ $p =~ ^\* ]] && continue
 	    p=${p// /}
-	    generateExecute "${CMD} ${p}" "${CMD} ${p}"
+	    generateExecute "${CMD/-/ } ${p}" "${CMD} ${p}"
     done
 }
 
