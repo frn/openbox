@@ -6,17 +6,6 @@ function generateExecute() {
 	printf '  </item>\n'
 }
 
-function generateMenu() {
-	declare name="${1}"
-	declare -a exec=("${!2}")
-	printf '<menu id="%s" label="%s">\n' "$name" "$name"
-	for c in "${exec[@]}"; do
-	    command="${NETCTL} ${c} ${name}"
-	    generateExecute ${c} ${command}
-	done
-	printf '</menu>\n'
-}
-
 function generateSeparator() {
     [[ ${1} ]] && printf '  <separator label="%s"/>\n' "$1" || echo "<separator />"
 
@@ -24,8 +13,11 @@ function generateSeparator() {
 
 function connectedProfile() {
     p=$(netctl list | grep \*)
-    [[ ${p} ]] && p="${CONNECTED} ${p//\*/}" || p="${CONNECTED} []"
-    generateSeparator ${p}
+    p=${p//\*/}
+    [[ ${p} ]] && activeName="${CONNECTED} ${p}" || activeName="${CONNECTED} []"
+    generateSeparator ${activeName}
+    generateExecute "Stop" "${NETCTL} stop ${p}"
+    generateExecute "Restart" "${NETCTL} restart ${p}"
 }
 
 function profiles() {
@@ -36,11 +28,9 @@ function profiles() {
     [[ `echo ${profiles[@]} | grep \*` ]] && CMD="switch-to"
 
     for p in "${profiles[@]}"; do
-	    cmd=(${CMD})
-	    [[ $p =~ ^\* ]] && cmd=("stop" "restart")
-	    p=${p//\*/}
+	    [[ $p =~ ^\* ]] && continue
 	    p=${p// /}
-	    generateMenu "${p}" cmd[@]
+	    generateExecute "${CMD} ${p}" "${NETCTL} ${CMD} ${p}"
     done
 }
 
@@ -52,7 +42,8 @@ CONNECTED="Connected profile:"
 echo '<?xml version="1.0" encoding="UTF-8"?>'
 echo '<openbox_pipe_menu>'
 connectedProfile
+generateSeparator "All Profiles"
 generateExecute "Stop All" "${NETCTL} stop-all"
-generateSeparator "Profiles"
+generateSeparator "Other Profiles"
 profiles
 echo '</openbox_pipe_menu>'
