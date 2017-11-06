@@ -100,7 +100,8 @@
 <menu id="root-menu" label="Openbox 3">
   <menu id="openbox-menu" label="Applications" execute="/usr/bin/openbox-menu lxde-applications.menu"/>
   <menu id="calendar" label="Calendar" execute="~/.config/openbox/pipemenus/date-menu.sh"/>
-  <menu id="wireless" label="Wireless" execute="~/.config/openbox/pipemenus/netctl-list.sh"/>
+  <menu id="netctl" label="Netctl menu" execute="sudo ~/.config/openbox/pipemenus/netctl-list.sh"/>
+  <menu id="wirelessPipe" label="Wifi menu" execute="sudo ~/.config/openbox/pipemenus/wifi-pipe.sh wlp4s0"/>
   <menu id="places" label="Places" execute="~/.config/openbox/pipemenus/obpipemenu-places ~/"/>
   <menu id="recent" label="Recent Files" execute="~/.config/openbox/pipemenus/obrecent.sh ~/"/>
   <menu id="Preferences"/>
