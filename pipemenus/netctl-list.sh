@@ -1,8 +1,8 @@
 #!/bin/bash
 
 function generateExecute() {
-	printf '  <item label="%s">\n' "$1"
-	printf '    <action name="Execute"><command>%s</command></action>\n' "$2"
+	printf '  <item label="%s">\n' "${1^}"
+	printf '    <action name="Execute"><command>%s %s</command></action>\n' "${NETCTL}" "$2"
 	printf '  </item>\n'
 }
 
@@ -14,10 +14,14 @@ function generateSeparator() {
 function connectedProfile() {
     p=$(netctl list | grep \*)
     p=${p//\*/}
-    [[ ${p} ]] && activeName="${CONNECTED} ${p}" || activeName="${CONNECTED} []"
-    generateSeparator ${activeName}
-    generateExecute "Stop" "${NETCTL} stop ${p}"
-    generateExecute "Restart" "${NETCTL} restart ${p}"
+    if [[ ${p} ]]
+    then
+        generateSeparator "${CONNECTED} ${p}"
+        generateExecute "stop" "stop ${p}"
+        generateExecute "restart" "restart ${p}"
+    else
+        generateSeparator "${CONNECTED} []"
+    fi
 }
 
 function profiles() {
@@ -30,7 +34,7 @@ function profiles() {
     for p in "${profiles[@]}"; do
 	    [[ $p =~ ^\* ]] && continue
 	    p=${p// /}
-	    generateExecute "${CMD} ${p}" "${NETCTL} ${CMD} ${p}"
+	    generateExecute "${CMD} ${p}" "${CMD} ${p}"
     done
 }
 
@@ -43,7 +47,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>'
 echo '<openbox_pipe_menu>'
 connectedProfile
 generateSeparator "All Profiles"
-generateExecute "Stop All" "${NETCTL} stop-all"
+generateExecute "stop-all" "stop-all"
 generateSeparator "Other Profiles"
 profiles
 echo '</openbox_pipe_menu>'
