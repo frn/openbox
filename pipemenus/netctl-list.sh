@@ -14,30 +14,19 @@ function generateSeparator() {
 function connectedProfile() {
     CONNECTED=$(netctl list | grep \*)
     CONNECTED=${CONNECTED//\*/}
-    if [[ ${CONNECTED} ]]
-    then
-        generateSeparator "${CONNECTED_MSG} ${CONNECTED}"
-        generateExecute "stop" "stop ${CONNECTED}"
-        generateExecute "restart" "restart ${CONNECTED}"
-    else
-        generateSeparator "${CONNECTED_MSG} []"
-    fi
+    [[ ${CONNECTED} ]] && generateSeparator "${CONNECTED_MSG} ${CONNECTED}" &&
+                        generateExecute "stop" "stop ${CONNECTED}" &&
+                        generateExecute "restart" "restart ${CONNECTED}" ||
+                        generateSeparator "${CONNECTED_MSG} []"
 }
 
 function allProfiles() {
-    if [[ ${CONNECTED} ]]
-    then
-        generateSeparator "All Profiles"
-        generateExecute "stop-all" "stop-all"
-    fi
+    [[ ${CONNECTED} ]] && generateSeparator "All Profiles" && generateExecute "stop-all" "stop-all"
 }
-
-
 
 function profiles() {
     profiles=($(netctl list))
     regex="^\*"
-
     if [[ ${CONNECTED} ]]
     then
         CMD="switch-to"
