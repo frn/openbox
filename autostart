@@ -22,9 +22,6 @@ numlockx &
 #screensaver
 xscreensaver -no-splash &
 
-#netctl
-sudo netctltray &
-
 #sun elevation
 redshiftgui &
 
