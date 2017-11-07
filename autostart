@@ -22,9 +22,6 @@ numlockx &
 #screensaver
 xscreensaver -no-splash &
 
-#netctl
-sudo netctltray &
-
 #sun elevation
 redshiftgui &
 
@@ -38,7 +35,7 @@ clipit &
 firefox &
 
 #file manager
-pcmanfm &
+doublecmd &
 
 #tomato technique
 tomighty &
