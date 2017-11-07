@@ -102,6 +102,7 @@
   <menu id="calendar" label="Calendar" execute="~/.config/openbox/pipemenus/date-menu.sh"/>
   <menu id="netctl" label="Netctl menu" execute="sudo ~/.config/openbox/pipemenus/netctl-list.sh"/>
   <menu id="wirelessPipe" label="Wifi menu" execute="sudo ~/.config/openbox/pipemenus/wifi-pipe.sh wlp4s0"/>
+  <menu id="weather" label="Weather" execute="python2 ~/.config/openbox/pipemenus/weathermenu.py 'Wroclaw'"/>
   <menu id="places" label="Places" execute="~/.config/openbox/pipemenus/obpipemenu-places ~/"/>
   <menu id="recent" label="Recent Files" execute="~/.config/openbox/pipemenus/obrecent.sh ~/"/>
   <menu id="Preferences"/>
