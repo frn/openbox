@@ -21,15 +21,20 @@ class WeatherBit(object):
     _content = ''
     _cache = {}
     _facts = ['temp', 'description', 'wind_cdir', 'wind_spd', 'sunset', 'sunrise', 'clouds']
-    _translations = {'temp': 'Temperature', 'description': 'Description', 'wind_cdir': 'Wind', 'wind_spd': 'Wind Speed', 'sunset': 'Sunset',
-                     'sunrise': 'Sunrise', 'clouds': 'Clouds'}
+    _translations = {'temp': 'Temperature', 'description': 'Description', 'wind_cdir': 'Wind', 'wind_spd': 'Wind Speed',
+                     'sunset': 'Sunset', 'sunrise': 'Sunrise', 'clouds': 'Clouds'}
     _factsDir = OrderedDict()
     _menu_string = ''
     city = ''
     lang = 'en'
 
     def get_dev_key(self):
-        self._key = open(self._keyFile, 'r').read().strip('\n')
+        try:
+            with open(self._keyFile, 'r') as keyFile:
+                self._key = keyFile.read().strip('\n')
+        except EnvironmentError:
+            print ('There is a problem with reading of file with developer key')
+            raise
 
     def get_weather(self):
         self.get_dev_key()
@@ -50,11 +55,11 @@ class WeatherBit(object):
         self.read_cache()
         if not self._cache or self.city not in self._cache or self.outdated_cache():
             self.set_facts()
-            self._menu_string = ' <openbox_pipe_menu>\n'
-            self._menu_string += '\t<separator label = "%s" />\n' % self.city
+            self._menu_string = '<openbox_pipe_menu>\n'
+            self._menu_string += '\t<separator label="%s" />\n' % self.city
             for fact, value in self._factsDir.iteritems():
                 self._menu_string += '\t\t<item label="%s: %s"/>\n' % (fact, value)
-            self._menu_string += ' </openbox_pipe_menu>\n'
+            self._menu_string += '</openbox_pipe_menu>\n'
             self.write_cache()
         else:
             self._menu_string = self._cache[self.city]['ob_pipe_menu']
@@ -65,18 +70,17 @@ class WeatherBit(object):
     def write_cache(self):
         try:
             self._cache[self.city] = {'date': datetime.utcnow(), 'ob_pipe_menu': self._menu_string}
-            f = open(self._cacheFile, 'wb')
-            pickle.dump(self._cache, f, -1)
-            f.close()
-        except IOError:
+            with open(self._cacheFile, 'wb') as cacheFile:
+                pickle.dump(self._cache, cacheFile, -1)
+        except EnvironmentError:
+            print ('There is a problem with writing cache file')
             raise
 
     def read_cache(self):
         try:
-            f = open(self._cacheFile, 'rb')
-            self._cache = pickle.load(f)
-            f.close()
-        except IOError:
+            with open(self._cacheFile, 'rb') as cacheFile:
+                self._cache = pickle.load(cacheFile)
+        except EnvironmentError:
             self._cache = {}
 
     def __init__(self, city):

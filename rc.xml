@@ -1440,7 +1440,7 @@
             <maximized>yes</maximized>
         </application>
         <application class="jetbrains-idea-ce" type="normal">
-            <desktop>7</desktop>
+            <desktop>6</desktop>
             <maximized>yes</maximized>
         </application>
         <application class="Vivaldi-stable" type="normal">
@@ -1537,5 +1537,7 @@
 <application class="Kaku" name="kaku" role="browser-window" type="normal"><desktop>8</desktop></application>
 <application class="SmartGit" type="normal"><desktop>4</desktop><maximized>yes</maximized></application>
 <application class="Doublecmd" type="normal"><desktop>2</desktop><maximized>yes</maximized><decor>no</decor></application>
+<application class="qpdfview" name="qpdfview" type="normal"><desktop>7</desktop><maximized>yes</maximized></application>
+<application class="jetbrains-pycharm-ce" type="normal"><desktop>6</desktop><maximized>yes</maximized></application>
 </applications>
 </openbox_config>
