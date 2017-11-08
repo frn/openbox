@@ -1,9 +1,7 @@
 import datetime
 import json
 import os
-import pickle
 import sys
-import urllib
 from collections import OrderedDict
 from datetime import datetime, timedelta
 from os.path import join
@@ -28,19 +26,24 @@ class WeatherBit(object):
     city = ''
     lang = 'en'
 
+    def set_cache_file(self):
+        self._cacheFile = self._cacheFile + '.' + self.city
+
     def get_dev_key(self):
         try:
-            with open(self._keyFile, 'r') as keyFile:
-                self._key = keyFile.read().strip('\n')
-        except EnvironmentError:
-            print ('There is a problem with reading of file with developer key')
+            key_file = open(self._keyFile, 'r')
+        except Exception:
+            print('There is a problem with reading ofdeveloper key')
             raise
+        else:
+            with key_file:
+                self._key = key_file.read().strip('\n')
 
     def get_weather(self):
         self.get_dev_key()
         params_dict = {'lang': self.lang, 'city': self.city, 'key': self._key}
-        params = urllib.urlencode(params_dict)
-        resp, content = httplib2.Http().request(self._currentWeather + '?' + params)
+        params = '&'.join([key + '=' + value for key, value in params_dict.items()])
+        _, content = httplib2.Http().request(self._currentWeather + '?' + params)
         self._content = json.loads(content)['data'][0]
 
     def set_facts(self):
@@ -52,36 +55,42 @@ class WeatherBit(object):
                 self._factsDir[self._translations[fact]] = self._content[fact]
 
     def generate_menu(self):
+        self.set_cache_file()
         self.read_cache()
-        if not self._cache or self.city not in self._cache or self.outdated_cache():
+        if not self._cache or self.outdated_cache():
             self.set_facts()
             self._menu_string = '<openbox_pipe_menu>\n'
             self._menu_string += '\t<separator label="%s" />\n' % self.city
-            for fact, value in self._factsDir.iteritems():
+            for fact, value in self._factsDir.items():
                 self._menu_string += '\t\t<item label="%s: %s"/>\n' % (fact, value)
             self._menu_string += '</openbox_pipe_menu>\n'
             self.write_cache()
         else:
-            self._menu_string = self._cache[self.city]['ob_pipe_menu']
+            self._menu_string = self._cache['ob_pipe_menu']
 
     def outdated_cache(self):
-        return self._cache[self.city]['date'] + timedelta(hours=self._CACHE_HOURS) < datetime.utcnow()
+        return datetime.strptime(self._cache['date'], '%Y-%m-%dT%H:%M:%S.%f') + timedelta(
+            hours=self._CACHE_HOURS) < datetime.utcnow()
 
     def write_cache(self):
         try:
-            self._cache[self.city] = {'date': datetime.utcnow(), 'ob_pipe_menu': self._menu_string}
-            with open(self._cacheFile, 'wb') as cacheFile:
-                pickle.dump(self._cache, cacheFile, -1)
-        except EnvironmentError:
-            print ('There is a problem with writing cache file')
+            self._cache = {'date': datetime.utcnow().isoformat(), 'ob_pipe_menu': self._menu_string}
+            cache_file = open(self._cacheFile, 'w')
+        except Exception:
+            print('There is a problem with writing cache file')
             raise
+        else:
+            with cache_file:
+                json.dump(self._cache, cache_file)
 
     def read_cache(self):
         try:
-            with open(self._cacheFile, 'rb') as cacheFile:
-                self._cache = pickle.load(cacheFile)
+            cache_file = open(self._cacheFile, 'r')
         except EnvironmentError:
             self._cache = {}
+        else:
+            with cache_file:
+                self._cache = json.load(cache_file)
 
     def __init__(self, city):
         self.city = city
@@ -93,8 +102,8 @@ class WeatherBit(object):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) < 1:
+    if len(sys.argv) <= 1:
         print('No chosen city')
         exit(1)
     weather_bit = WeatherBit(sys.argv[1])
-    print (weather_bit.menu_string)
+    print(weather_bit.menu_string)
