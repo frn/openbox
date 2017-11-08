@@ -3,7 +3,6 @@ import json
 import os
 import pickle
 import sys
-import urllib
 from collections import OrderedDict
 from datetime import datetime, timedelta
 from os.path import join
@@ -32,7 +31,7 @@ class WeatherBit(object):
         try:
             key_file = open(self._keyFile, 'r')
         except Exception:
-            print ('There is a problem with reading ofdeveloper key')
+            print('There is a problem with reading ofdeveloper key')
             raise
         else:
             with key_file:
@@ -41,8 +40,8 @@ class WeatherBit(object):
     def get_weather(self):
         self.get_dev_key()
         params_dict = {'lang': self.lang, 'city': self.city, 'key': self._key}
-        params = urllib.urlencode(params_dict)
-        resp, content = httplib2.Http().request(self._currentWeather + '?' + params)
+        params = '&'.join([key + '=' + value for key, value in params_dict.items()])
+        _, content = httplib2.Http().request(self._currentWeather + '?' + params)
         self._content = json.loads(content)['data'][0]
 
     def set_facts(self):
@@ -59,7 +58,7 @@ class WeatherBit(object):
             self.set_facts()
             self._menu_string = '<openbox_pipe_menu>\n'
             self._menu_string += '\t<separator label="%s" />\n' % self.city
-            for fact, value in self._factsDir.iteritems():
+            for fact, value in self._factsDir.items():
                 self._menu_string += '\t\t<item label="%s: %s"/>\n' % (fact, value)
             self._menu_string += '</openbox_pipe_menu>\n'
             self.write_cache()
@@ -74,7 +73,7 @@ class WeatherBit(object):
             self._cache[self.city] = {'date': datetime.utcnow(), 'ob_pipe_menu': self._menu_string}
             cache_file = open(self._cacheFile, 'wb')
         except Exception:
-            print ('There is a problem with writing cache file')
+            print('There is a problem with writing cache file')
             raise
         else:
             with cache_file:
@@ -99,8 +98,8 @@ class WeatherBit(object):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) < 1:
+    if len(sys.argv) <= 1:
         print('No chosen city')
         exit(1)
     weather_bit = WeatherBit(sys.argv[1])
-    print (weather_bit.menu_string)
+    print(weather_bit.menu_string)
