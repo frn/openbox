@@ -1,7 +1,6 @@
 import datetime
 import json
 import os
-import pickle
 import sys
 from collections import OrderedDict
 from datetime import datetime, timedelta
@@ -26,6 +25,9 @@ class WeatherBit(object):
     _menu_string = ''
     city = ''
     lang = 'en'
+
+    def set_cache_file(self):
+        self._cacheFile = self._cacheFile + '.' + self.city
 
     def get_dev_key(self):
         try:
@@ -53,8 +55,9 @@ class WeatherBit(object):
                 self._factsDir[self._translations[fact]] = self._content[fact]
 
     def generate_menu(self):
+        self.set_cache_file()
         self.read_cache()
-        if not self._cache or self.city not in self._cache or self.outdated_cache():
+        if not self._cache or self.outdated_cache():
             self.set_facts()
             self._menu_string = '<openbox_pipe_menu>\n'
             self._menu_string += '\t<separator label="%s" />\n' % self.city
@@ -63,30 +66,31 @@ class WeatherBit(object):
             self._menu_string += '</openbox_pipe_menu>\n'
             self.write_cache()
         else:
-            self._menu_string = self._cache[self.city]['ob_pipe_menu']
+            self._menu_string = self._cache['ob_pipe_menu']
 
     def outdated_cache(self):
-        return self._cache[self.city]['date'] + timedelta(hours=self._CACHE_HOURS) < datetime.utcnow()
+        return datetime.strptime(self._cache['date'], '%Y-%m-%dT%H:%M:%S.%f') + timedelta(
+            hours=self._CACHE_HOURS) < datetime.utcnow()
 
     def write_cache(self):
         try:
-            self._cache[self.city] = {'date': datetime.utcnow(), 'ob_pipe_menu': self._menu_string}
-            cache_file = open(self._cacheFile, 'wb')
+            self._cache = {'date': datetime.utcnow().isoformat(), 'ob_pipe_menu': self._menu_string}
+            cache_file = open(self._cacheFile, 'w')
         except Exception:
             print('There is a problem with writing cache file')
             raise
         else:
             with cache_file:
-                pickle.dump(self._cache, cache_file, -1)
+                json.dump(self._cache, cache_file)
 
     def read_cache(self):
         try:
-            cache_file = open(self._cacheFile, 'rb')
+            cache_file = open(self._cacheFile, 'r')
         except EnvironmentError:
             self._cache = {}
         else:
             with cache_file:
-                self._cache = pickle.load(cache_file)
+                self._cache = json.load(cache_file)
 
     def __init__(self, city):
         self.city = city
