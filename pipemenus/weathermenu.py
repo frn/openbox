@@ -30,11 +30,13 @@ class WeatherBit(object):
 
     def get_dev_key(self):
         try:
-            with open(self._keyFile, 'r') as keyFile:
-                self._key = keyFile.read().strip('\n')
-        except EnvironmentError:
-            print ('There is a problem with reading of file with developer key')
+            key_file = open(self._keyFile, 'r')
+        except Exception:
+            print ('There is a problem with reading ofdeveloper key')
             raise
+        else:
+            with key_file:
+                self._key = key_file.read().strip('\n')
 
     def get_weather(self):
         self.get_dev_key()
@@ -70,18 +72,22 @@ class WeatherBit(object):
     def write_cache(self):
         try:
             self._cache[self.city] = {'date': datetime.utcnow(), 'ob_pipe_menu': self._menu_string}
-            with open(self._cacheFile, 'wb') as cacheFile:
-                pickle.dump(self._cache, cacheFile, -1)
-        except EnvironmentError:
+            cache_file = open(self._cacheFile, 'wb')
+        except Exception:
             print ('There is a problem with writing cache file')
             raise
+        else:
+            with cache_file:
+                pickle.dump(self._cache, cache_file, -1)
 
     def read_cache(self):
         try:
-            with open(self._cacheFile, 'rb') as cacheFile:
-                self._cache = pickle.load(cacheFile)
+            cache_file = open(self._cacheFile, 'rb')
         except EnvironmentError:
             self._cache = {}
+        else:
+            with cache_file:
+                self._cache = pickle.load(cache_file)
 
     def __init__(self, city):
         self.city = city
