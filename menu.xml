@@ -9,6 +9,16 @@
         <command>gvir ~/.config/openbox/autostart</command>
       </action>
     </item>
+    <item label="Edit rc">
+      <action name="Execute">
+        <command>gvir ~/.config/openbox/rc.xml</command>
+      </action>
+    </item>
+    <item label="Edit menu">
+      <action name="Execute">
+        <command>gvir ~/.config/openbox/menu.xml</command>
+      </action>
+    </item>
     <item label="GUI Menu Editor">
       <action name="Execute">
         <command>obmenu</command>

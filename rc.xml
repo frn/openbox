@@ -293,7 +293,7 @@
         </keybind>
         <keybind key="W-e">
             <action name="Execute">
-                <command>mousepad</command>
+                <command>gvir</command>
                 <startupnotify>
                     <enabled>yes</enabled>
                     <name>geany</name>
@@ -1044,9 +1044,14 @@
                 <command>meteo_wawa</command>
             </action>
         </keybind>
+        <keybind key="W-S-w">
+            <action name="Execute">
+		    <command>vivaldi-stable -new-tab vivaldi://newtab</command>
+            </action>
+        </keybind>
         <keybind key="W-w">
             <action name="Execute">
-                <command>firefox</command>
+		    <command>firefox -new-tab about:home</command>
             </action>
         </keybind>
     </keyboard>
@@ -1506,9 +1511,9 @@
             <maximized>yes</maximized>
         </application>
         <application class="Gvim" type="normal">
-            <desktop>5</desktop>
+            <desktop>6</desktop>
             <maximized>yes</maximized>
-        </application>
+        <decor>no</decor></application>
         <application class="Transmission-gtk" name="transmission-gtk" type="normal">
             <desktop>4</desktop>
             <maximized>yes</maximized>
@@ -1530,5 +1535,6 @@
 <application class="Doublecmd" type="normal"><desktop>2</desktop><maximized>yes</maximized><decor>no</decor></application>
 <application class="qpdfview" name="qpdfview" type="normal"><desktop>7</desktop><maximized>yes</maximized></application>
 <application class="jetbrains-pycharm-ce" type="normal"><desktop>6</desktop><maximized>yes</maximized></application>
+<application class="Soffice" name="soffice" type="normal"><desktop>5</desktop><maximized>yes</maximized><fullscreen>yes</fullscreen></application>
 </applications>
 </openbox_config>

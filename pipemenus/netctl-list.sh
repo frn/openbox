@@ -40,10 +40,7 @@ function profiles() {
     done
 }
 
-IFS=$'\n'
-NETCTL="sudo netctl"
-CONNECTED_MSG="Connected profile:"
-
+function showMenu() {
 
 echo '<?xml version="1.0" encoding="UTF-8"?>'
 echo '<openbox_pipe_menu>'
@@ -51,3 +48,14 @@ connectedProfile
 allProfiles
 profiles
 echo '</openbox_pipe_menu>'
+
+}
+
+
+IFS=$'\n'
+NETCTL="sudo netctl"
+CONNECTED_MSG="Connected profile:"
+
+showMenu
+
+
